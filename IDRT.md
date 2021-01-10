@@ -554,11 +554,15 @@ http status code | Description
 500 | Unexpected error
 
 ### Booking (GET)
-Query all information regarding the given booking.
+Fetch all information regarding the requested bookings.
 
 Query Parameter | Required | Type | Defines
 --- | ---| --- | ---
-`bookingId` | Yes | String | Identification of the booking.
+`bookingId` | Optional | String | Identification of the booking.
+`customerId` | Optional | String | Identifier of the customer used by the MaaS-platform.
+`dateStart` | Optional | Date | Bookings with a scheduled pickup time between dateStart and dateEnd.
+`dateEnd` | Optional | Date | Bookings with a scheduled pickup time between dateStart and dateEnd.
+`status` | Optional | String | Status of the booking.
 
 #### Responses
 http status code | Description 
@@ -570,6 +574,7 @@ http status code | Description
 #### Response 200
 Field Name | Required | Type | Defines
 --- | ---| --- | ---
+`customerId` | Yes | String | Identifier of the customer used by the MaaS-platform.
 `startPoint` | Yes | GeoJson POINT | Start point of the trip.
 `startAddress` | Optional | String | Address of the start point of the trip to be displayed to the customer.
 `endPoint` | Yes | GeoJson POINT | End point of the trip.
